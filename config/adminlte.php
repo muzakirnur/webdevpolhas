@@ -299,6 +299,21 @@ return [
     */
 
     'plugins' => [
+        'BootstrapSelect' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+                ],
+            ],
+        ],
         'Datatables' => [
             'active' => false,
             'files' => [

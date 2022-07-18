@@ -7,12 +7,18 @@
         <form action="{{ route('nilai.save') }}" method="post">
             @csrf
             <div class="row">
-                <x-adminlte-select name="matakuliah_id" label="Matakuliah" fgroup-class="col-md-6">
+                {{-- <x-adminlte-select-bs name="matakuliah_id" label="Matakuliah" fgroup-class="col-md-6">
                     <option selected>Pilih Mahasiswa</option>
                     @foreach ($mahasiswa as $row)
                         <option value="{{ $row->id }}">{{ $row->nama }}</option>
                     @endforeach
-                </x-adminlte-select>
+                </x-adminlte-select-bs> --}}
+                <select class="selectpicker" data-live-search="true">
+                    @foreach ($mahasiswa as $row)
+                        <option data-tokens="{{ $row->nama }}" value="{{ $row->id }}">{{ $row->nama }}</option>
+                    @endforeach
+                </select>
+
                 <x-adminlte-input name="hp" type="number" label="No Handphone" placeholder="Nomer Handphone"
                     fgroup-class="col-md-6" value="{{ old('hp') }}" />
             </div>
