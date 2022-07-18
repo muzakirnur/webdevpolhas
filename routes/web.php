@@ -30,6 +30,9 @@ Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 
+    // Routes Mendapatkan Matakuliah Berdasarkan Selected Mahasiswa
+    Route::get('{id}/matakuliah', [NilaiController::class, 'getMatkul']);
+
     // Routes Kelola Mahasiswa
     Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
     Route::get('mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');

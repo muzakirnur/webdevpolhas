@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\INilaiService;
+use App\Services\NilaiService;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(INilaiService::class, NilaiService::class);
     }
 
     /**

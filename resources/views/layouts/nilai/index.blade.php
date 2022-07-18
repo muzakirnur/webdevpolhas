@@ -20,6 +20,8 @@
                     <th scope="col">No Handphone</th>
                     <th scope="col">Program Studi</th>
                     <th scope="col">Matakuliah</th>
+                    <th scope="col">Nilai</th>
+                    <th scope="col">Grade</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -27,10 +29,12 @@
                 @forelse ($data as $row)
                     <tr>
                         <th scope="row">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</th>
-                        <td>{{ $row->nama }}</td>
-                        <td>{{ $row->hp }}</td>
-                        <td>{{ $row->prodi->name }}</td>
+                        <td>{{ $row->mahasiswa->nama }}</td>
+                        <td>{{ $row->mahasiswa->hp }}</td>
+                        <td>{{ $row->mahasiswa->prodi->name }}</td>
                         <td>{{ $row->matakuliah->name }}</td>
+                        <td>{{ $row->nilai }}</td>
+                        <td>{{ $row->grade }}</td>
                         <td>
                             <button class="btn btn-primary"><i class="fas fa-fw fa-eye"></i></button>
                         </td>
