@@ -23,6 +23,6 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 });
