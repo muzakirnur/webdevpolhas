@@ -7,8 +7,8 @@
                 <h2>Data Matakuliah</h2>
             </div>
             <div class="col-md-4 p-3">
-                {{-- <a href="{{ route('mahasiswa.create') }}" class="btn btn-success"><i class="fas fa-fw fa-plus"></i> Tambah
-                    Data Mahasiswa</a> --}}
+                <a href="{{ route('matkul.create') }}" class="btn btn-success"><i class="fas fa-fw fa-plus"></i> Tambah
+                    Data Matakuliah</a>
             </div>
         </div>
         @include('layouts.partials.alerts')
@@ -16,8 +16,8 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Program Studi</th>
                     <th scope="col">Matakuliah</th>
+                    <th scope="col">Program Studi</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>

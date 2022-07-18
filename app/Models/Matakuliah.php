@@ -10,6 +10,8 @@ class Matakuliah extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function prodi(): BelongsTo
     {
         return $this->belongsTo(Prodi::class);

@@ -12,4 +12,18 @@ class ProgramStuidController extends Controller
         $data = Prodi::paginate(10);
         return view('layouts.prodi.index', compact('data'));
     }
+
+    public function create()
+    {
+        return view('layouts.prodi.create');
+    }
+
+    public function save(Request $request)
+    {
+        Prodi::create([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('prodi.index')->with('success', 'Data Program Studi Berhasil ditambahkan');
+    }
 }

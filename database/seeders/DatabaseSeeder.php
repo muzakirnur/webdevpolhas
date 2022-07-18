@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Mahasiswa;
+use App\Models\Matakuliah;
 use App\Models\Prodi;
 use App\Models\User;
 use Database\Factories\MahasiswaFactory;
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'administrator',
             'password' => bcrypt('password'),
         ]);
+        Matakuliah::factory(140)->create();
     }
 }

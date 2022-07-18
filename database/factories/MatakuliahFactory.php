@@ -17,7 +17,8 @@ class MatakuliahFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->sentence(2),
+            'prodi_id' => fake()->randomDigitNot(0),
         ];
     }
 }

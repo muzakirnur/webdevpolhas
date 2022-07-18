@@ -7,8 +7,8 @@
                 <h2>Data Program Studi</h2>
             </div>
             <div class="col-md-4 p-3">
-                {{-- <a href="{{ route('mahasiswa.create') }}" class="btn btn-success"><i class="fas fa-fw fa-plus"></i> Tambah
-                    Data Mahasiswa</a> --}}
+                <a href="{{ route('prodi.create') }}" class="btn btn-success"><i class="fas fa-fw fa-plus"></i> Tambah
+                    Data Program Studi</a>
             </div>
         </div>
         @include('layouts.partials.alerts')

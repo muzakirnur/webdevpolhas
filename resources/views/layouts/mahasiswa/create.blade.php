@@ -4,7 +4,7 @@
                  <h5 class="card-title">Tambah Data Mahasiswa</h5>
              </div>
              <div class="card-body">
-                 <form action="{{ route('mahasiswa.store') }}" method="post">
+                 <form action="{{ route('mahasiswa.save') }}" method="post">
                      @csrf
                      <div class="row">
                          <x-adminlte-input name="nama" label="Nama" placeholder="Nama Mahasiswa" fgroup-class="col-md-6"
