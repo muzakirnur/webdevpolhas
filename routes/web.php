@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Auth::routes(['register' => false]);
+
+Route::middleware('auth')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 });

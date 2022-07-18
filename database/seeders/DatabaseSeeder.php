@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
+use App\Models\User;
 use Database\Factories\MahasiswaFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,5 +26,9 @@ class DatabaseSeeder extends Seeder
         // ]);
         Prodi::factory(9)->create();
         Mahasiswa::factory(1000)->create();
+        User::create([
+            'username' => 'administrator',
+            'password' => bcrypt('password'),
+        ]);
     }
 }
