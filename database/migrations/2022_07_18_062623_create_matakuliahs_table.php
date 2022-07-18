@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('matakuliahs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('prodi_id')->references('id')->on('prodis')->onDelete('cascade');
             $table->timestamps();
         });
     }
