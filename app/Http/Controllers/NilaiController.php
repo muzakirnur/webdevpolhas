@@ -32,11 +32,13 @@ class NilaiController extends Controller
     public function save(Request $request)
     {
         $validate = $request->validate([
-            'nilai' => ['required', 'integer', 'between:10,100']
+            'nilai' => ['required', 'integer', 'between:10,100'],
+            'mahasiswa_id' => ['required'],
+            'matakuliah_id' => ['required']
         ]);
         $this->nilaiService->add([
-            'mahasiswa_id' => $request->mahasiswa_id,
-            'matakuliah_id' => $request->matakuliah_id,
+            'mahasiswa_id' => $validate['mahasiswa_id'],
+            'matakuliah_id' => $validate['matakuliah_id'],
             'nilai' => $validate['nilai'],
         ]);
 
