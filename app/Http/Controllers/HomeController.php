@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
+use App\Models\Matakuliah;
+use App\Models\Nilai;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $prodi = Prodi::all()->count();
+        $mahasiswa = Mahasiswa::all()->count();
+        $matakuliah = Matakuliah::all()->count();
+        $nilai = Nilai::all()->count();
         $page = "Dashboard";
-        return view('home', compact('page'));
+        return view('home', compact('page', 'prodi', 'mahasiswa', 'matakuliah', 'nilai'));
     }
 }

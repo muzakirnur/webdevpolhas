@@ -19,8 +19,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
+        'foto',
         'password',
     ];
 
@@ -46,5 +46,10 @@ class User extends Authenticatable
     public function adminlte_image()
     {
         return $this->foto;
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'admin/profile/' . $this->username;
     }
 }

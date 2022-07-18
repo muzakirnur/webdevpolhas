@@ -15,6 +15,7 @@ class NilaiController extends Controller
     {
         $this->nilaiService = $nilaiService;
     }
+
     public function index()
     {
         $data = Nilai::paginate(10);

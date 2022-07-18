@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramStuidController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('home');
+
+    // Routes Kelola Profile
+    Route::get('profile/{username}', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('profile/{username}', [ProfileController::class, 'update'])->name('profile.update');
 
     // Routes Mendapatkan Matakuliah Berdasarkan Selected Mahasiswa
     Route::get('{id}/matakuliah', [NilaiController::class, 'getMatkul']);

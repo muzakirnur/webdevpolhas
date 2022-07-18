@@ -4,7 +4,7 @@
     </x-adminlte-alert>
 @endif
 @if (session()->has('error'))
-    <x-adminlte-alert theme="danger" title="Danger">
-        {{ session() }}
+    <x-adminlte-alert theme="danger" title="Gagal">
+        {{ session('error') }}
     </x-adminlte-alert>
 @endif
