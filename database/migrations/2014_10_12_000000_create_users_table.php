@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('foto');
+            $table->string('foto')->default('avatar.png');
             $table->rememberToken();
             $table->timestamps();
         });

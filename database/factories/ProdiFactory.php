@@ -17,7 +17,9 @@ class ProdiFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->sentence(2),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
