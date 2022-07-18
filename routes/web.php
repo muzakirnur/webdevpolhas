@@ -42,19 +42,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
     Route::get('mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
     Route::post('mahasiswa', [MahasiswaController::class, 'save'])->name('mahasiswa.save');
+    Route::get('mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+    Route::get('mahasiswa/delete/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
 
     // Routes Kelola Program Studi
     Route::get('program-studi', [ProgramStuidController::class, 'index'])->name('prodi.index');
     Route::get('program-studi/create', [ProgramStuidController::class, 'create'])->name('prodi.create');
     Route::post('program-studi/create', [ProgramStuidController::class, 'save'])->name('prodi.save');
+    Route::get('program-studi/show/{id}', [ProgramStuidController::class, 'show'])->name('prodi.show');
+    Route::get('program-studi/delete/{id}', [ProgramStuidController::class, 'destroy'])->name('prodi.destroy');
 
     // Routes Kelola Matakuliah
     Route::get('matakuliah', [MataKuliahController::class, 'index'])->name('matkul.index');
     Route::get('matakuliah/create', [MataKuliahController::class, 'create'])->name('matkul.create');
     Route::post('matakuliah/create', [MataKuliahController::class, 'save'])->name('matkul.save');
+    Route::get('matakuliah/delete/{id}', [MataKuliahController::class, 'destroy'])->name('matkul.destroy');
 
     // Routes Kelola Data Nilai
     Route::get('nilai', [NilaiController::class, 'index'])->name('nilai.index');
     Route::get('nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
     Route::post('nilai/create', [NilaiController::class, 'save'])->name('nilai.save');
+    Route::get('nilai/delete/{id}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
 });

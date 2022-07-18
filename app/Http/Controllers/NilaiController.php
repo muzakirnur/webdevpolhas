@@ -7,6 +7,7 @@ use App\Models\Matakuliah;
 use App\Models\Nilai;
 use App\Services\INilaiService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class NilaiController extends Controller
 {
@@ -48,5 +49,12 @@ class NilaiController extends Controller
         $getProdi = $getProdi->prodi_id;
         $getMatkul = Matakuliah::where('prodi_id', $getProdi)->pluck('name', 'id');
         return json_encode($getMatkul);
+    }
+
+    public function destroy($id)
+    {
+        $id = Crypt::decrypt($id);
+        Nilai::findOrFail($id)->delete();
+        return back()->with('success', 'Data Nilai Berhasil dihapus');
     }
 }

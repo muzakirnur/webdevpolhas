@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\Nilai;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class MahasiswaController extends Controller
 {
@@ -31,5 +33,20 @@ class MahasiswaController extends Controller
 
         Mahasiswa::create($validate);
         return redirect()->route('mahasiswa.index')->with('success', 'Data Berhasil ditambahkan');
+    }
+
+    public function show($id)
+    {
+        $id = Crypt::decrypt($id);
+        $data = Mahasiswa::findOrFail($id);
+        $nilai = Nilai::where('mahasiswa_id', $id)->paginate(10);
+        return view('layouts.mahasiswa.show', compact('data', 'nilai'));
+    }
+
+    public function destroy($id)
+    {
+        $id = Crypt::decrypt($id);
+        Mahasiswa::findOrFail($id)->delete();
+        return back()->with('success', 'Data Mahasiswa Berhasil dihapus');
     }
 }

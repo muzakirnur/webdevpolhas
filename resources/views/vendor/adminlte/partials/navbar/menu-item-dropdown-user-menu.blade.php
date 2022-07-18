@@ -62,7 +62,7 @@
         {{-- User menu footer --}}
         <li class="user-footer">
             @if ($profile_url)
-                <a href="{{ Auth::user()->username }}" class="btn btn-default btn-flat">
+                <a href="profile/{{ Auth::user()->username }}" class="btn btn-default btn-flat">
                     <i class="fa fa-fw fa-user text-lightblue"></i>
                     {{ __('adminlte::menu.profile') }}
                 </a>

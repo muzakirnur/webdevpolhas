@@ -6,7 +6,7 @@
             <div class="col-md-8 p-3">
                 <h2>Data Penilaian Mahasiswa</h2>
             </div>
-            <div class="col-md-4 p-3">
+            <div class="col-md-4 p-3 text-right">
                 <a href="{{ route('nilai.create') }}" class="btn btn-success"><i class="fas fa-fw fa-plus"></i> Tambah
                     Data Nilai</a>
             </div>
@@ -36,7 +36,8 @@
                         <td>{{ $row->nilai }}</td>
                         <td>{{ $row->grade }}</td>
                         <td>
-                            <button class="btn btn-primary"><i class="fas fa-fw fa-eye"></i></button>
+                            <a href="{{ route('nilai.destroy', Crypt::encrypt($row->id)) }}"
+                                class="btn btn-danger delete-confirm"><i class="fas fa-fw fa-trash"></i></a>
                         </td>
                     </tr>
                 @empty
@@ -50,3 +51,21 @@
         {{ $data->links() }}
     </div>
 @endsection
+@push('js')
+    <script>
+        $('.delete-confirm').on('click', function(event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+            swal({
+                title: 'Yakin ingin Menghapus ?',
+                text: 'Data Nilai ini akan di Hapus Permanen',
+                icon: 'warning',
+                buttons: ["Cancel", "Yes!"],
+            }).then(function(value) {
+                if (value) {
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+@endpush
